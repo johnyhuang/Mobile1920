@@ -44,16 +44,16 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         val currentType: String = binding.loremSelector.getItemAtPosition(p2).toString()
         when (currentType) {
             "Lorem Ipsum" -> {
-                binding.creatorText.text = loremIpsum.type
-                binding.loremText.text = loremIpsum.ipsum
+                binding.creatorText.text = binding.loremIpsum?.type
+                binding.loremText.text = binding.loremIpsum?.ipsum
             }
             "Trump Ipsum" -> {
-                binding.creatorText.text = trumpIpsum.type
-                binding.loremText.text = trumpIpsum.ipsum
+                binding.creatorText.text = binding.trumpIpsum?.type
+                binding.loremText.text = binding.trumpIpsum?.ipsum
             }
             "Hodor Ipsum" -> {
-                binding.creatorText.text = hodorIpsum.type
-                binding.loremText.text = hodorIpsum.ipsum
+                binding.creatorText.text = binding.hodorIpsum?.type
+                binding.loremText.text = binding.hodorIpsum?.ipsum
             }
         }
     }
