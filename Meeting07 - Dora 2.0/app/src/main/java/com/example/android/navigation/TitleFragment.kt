@@ -1,0 +1,90 @@
+package com.example.android.navigation
+
+
+import android.content.Context
+import android.os.Bundle
+import android.view.*
+import androidx.fragment.app.Fragment
+import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
+import com.example.android.navigation.databinding.FragmentTitleBinding
+import timber.log.Timber
+
+/**
+ * A simple [Fragment] subclass.
+ */
+class TitleFragment : Fragment() {
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        val binding = DataBindingUtil.inflate<FragmentTitleBinding>(inflater, R.layout.fragment_title, container, false)
+        binding.playButton.setOnClickListener{view: View ->
+            view.findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
+        }
+        Timber.i("In onCreateView")
+        setHasOptionsMenu(true)
+        return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.options_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return NavigationUI.onNavDestinationSelected(item!!,
+                view!!.findNavController()) || super.onOptionsItemSelected(item)
+    }
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        Timber.i("In onAttach")
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Timber.i("In onCreate")
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        Timber.i("In onActivityCreated")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Timber.i("In onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Timber.i("In onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Timber.i("In onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Timber.i("In onStop")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Timber.i("In onDestroyView")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Timber.i("In onDestroy")
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Timber.i("In onDetach")
+    }
+}
